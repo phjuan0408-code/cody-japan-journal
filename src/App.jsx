@@ -1,27 +1,6 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout.jsx";
-import ScrollToTop from "./components/ScrollToTop.jsx";
+import { HashRouter } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Chubu from "./pages/Chubu.jsx";
-import Place from "./pages/Place.jsx";
-import Food from "./pages/Food.jsx";
-import Itinerary from "./pages/Itinerary.jsx";
-import Day from "./pages/Day.jsx";
-
+import SiteFooter from "./components/SiteFooter.jsx";
 export default function App() {
-  return (
-    <HashRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/chubu" element={<Chubu />} />
-          <Route path="/itinerary" element={<Itinerary />} />
-          <Route path="/day/:daySlug" element={<Day />} />
-          <Route path="/place/:placeId" element={<Place />} />
-          <Route path="/food" element={<Food />} />
-        </Route>
-      </Routes>
-    </HashRouter>
-  );
+ return <HashRouter><div className="journal-layout"><a href="#main-content" className="sr-only focus:not-sr-only">跳至主要內容</a><header className="journal-nav"><div className="nav-inner"><a className="journal-brand" href="./"><span className="brand-dot" aria-hidden="true"/><span><span className="brand-title">Cody 日本旅記</span><span className="brand-caption">CODY'S TRAVEL JOURNAL</span></span></a><span className="nav-note">JAPAN · 2025 — 2026</span></div></header><main id="main-content"><Home/></main><SiteFooter/></div></HashRouter>;
 }

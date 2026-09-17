@@ -188,6 +188,7 @@ export default function PrefectureMap({
               role="button"
               tabIndex={0}
               className="cursor-pointer"
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.currentTarget.click(); } }}
               onClick={() => (region.type === "external" ? (window.location.href = region.href) : navigate(region.href))}
             >
               <text
@@ -219,6 +220,7 @@ export default function PrefectureMap({
               role="button"
               tabIndex={0}
               className="cursor-pointer"
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.currentTarget.click(); } }}
               onClick={() => navigate(`/place/${place.id}`)}
             >
               <circle
@@ -286,24 +288,23 @@ function getResponsiveMapConfig(mode, width) {
 
   if (isPhone) {
     return {
-      config: { scale: 3600, center: [137.8, 38.7] },
-      mapHeight: 1200,
+      config: { scale: 3600, center: [137.8, 39.0] },
+      mapHeight: 1400,
       sizes: mobileSizes,
-      cropBottom: 80,
     };
   }
 
   if (isTablet) {
     return {
-      config: { scale: 2350, center: [136.9, 36.4] },
-      mapHeight: 780,
+      config: { scale: 2350, center: [136.9, 39.2] },
+      mapHeight: 950,
       sizes: tabletSizes,
     };
   }
 
   return {
-    config: { scale: 1600, center: [137.4, 38.0] },
-    mapHeight: 680,
+    config: { scale: 1600, center: [137.4, 39.2] },
+    mapHeight: 620,
     sizes: desktopSizes,
   };
 }

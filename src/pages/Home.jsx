@@ -1,23 +1,16 @@
-import Banner from "../components/Banner.jsx";
+import { ArrowUpRight } from "lucide-react";
 import PrefectureMap from "../components/PrefectureMap.jsx";
-import { featureRegions } from "../data/tripData.js";
-
+import { regions } from "../data/regions.js";
 export default function Home() {
-  return (
-    <>
-      <Banner
-        title="JAPAN TRIPS"
-        subtitle="從四國到名古屋，把每趟旅行都留在地圖上。"
-        imageUrl="./images/placeholders/home-banner.webp"
-      />
-
-      <section className="mx-auto max-w-5xl px-4 py-8 text-center font-serif text-[#504339]">
-        <p className="text-lg leading-relaxed">從瀨戶內海邊的四國，到北阿爾卑斯山腳下的名古屋與日本中部，每一段旅程都用地圖收起來。</p>
-      </section>
-
-      <section id="map-section" className="mx-auto max-w-6xl px-2 pb-12 md:px-4">
-        <PrefectureMap mode="japan" regions={featureRegions} />
-      </section>
-    </>
-  );
+ return <section className="gateway">
+  <div><p className="eyebrow">A PERSONAL JOURNAL / 日本旅行紀錄</p><h1>走過的日本，<br/>留在這裡。</h1>
+   <p className="gateway-description">從四國的海邊，到中部的山間。<br/>沿著地圖，重讀每一天的風景與日常。</p>
+   <div className="journey-index">
+    <a className="journey-link" href={regions[0].href}><span className="number">01</span><span><strong>名古屋・日本中部</strong><small>2026.05.08 — 05.16 / 9 DAYS</small></span><ArrowUpRight size={21}/></a>
+    <a className="journey-link" href={regions[1].href}><span className="number">02</span><span><strong>四國・瀨戶內海</strong><small>2025.01.04 — 01.11 / 8 DAYS</small></span><ArrowUpRight size={21}/></a>
+   </div>
+   <figure className="gateway-photo"><img src="./images/kamikochi.webp" alt="上高地的河流與北阿爾卑斯山景"/><figcaption><span>上高地 · 日本中部</span><span>MAY 2026</span></figcaption></figure>
+  </div>
+  <div id="map-section" className="gateway-map"><div className="map-heading"><span>旅の足跡</span><span>JAPAN / 日本</span></div><PrefectureMap mode="japan" regions={regions}/><p className="map-caption">選一段旅程，從地圖開始。</p></div>
+ </section>;
 }
