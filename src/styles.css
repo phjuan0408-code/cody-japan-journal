@@ -1,6 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Vietnam keeps the journal layout, with a Phu Quoc coast palette. */
+html[data-travel-theme="vietnam"] {
+ --paper:#fffaf0; --ink:#164e54; --muted:#5f7371;
+ --line:#dfd9c5; --accent:#b75731;
+}
+html[data-travel-theme="vietnam"] .journal-nav {background:rgba(255,250,240,.97)}
+html[data-travel-theme="vietnam"] .gateway-map {background:var(--paper)}
+html[data-travel-theme="vietnam"] .map-heading,
+html[data-travel-theme="vietnam"] .map-caption {color:#456d6b}
+html[data-travel-theme="vietnam"] .map-caption {border-color:var(--line)}
+html[data-travel-theme="vietnam"] .atlas-vietnam path[fill="#dcded3"] {fill:#e7e4da}
+html[data-travel-theme="vietnam"] .atlas-vietnam path[fill="#267c78"] {fill:#188b89}
+html[data-travel-theme="vietnam"] .atlas-vietnam .map-target rect {fill:#fffaf0}
+html[data-travel-theme="vietnam"] .journey-link:hover {background:#f5edd9}
+html[data-travel-theme="vietnam"] .island-hero {background:#dceee9}
+html[data-travel-theme="vietnam"] .island-hero .eyebrow {color:#a34b29}
+html[data-travel-theme="vietnam"] .island-hero p:not(.eyebrow):not(.island-roman) {color:#456d6b}
+html[data-travel-theme="vietnam"] .island-art circle {fill:#eaa85b}
+html[data-travel-theme="vietnam"] .island-art path[fill="#548777"] {fill:#238c87}
+html[data-travel-theme="vietnam"] .island-art path[stroke="#90b9ae"] {stroke:#83c1bc}
+html[data-travel-theme="vietnam"] .island-art>span {color:#456d6b}
+html[data-travel-theme="vietnam"] .island-day-number,
+html[data-travel-theme="vietnam"] .day-route {color:#167777}
+html[data-travel-theme="vietnam"] .island-day:hover {background:#f5edd9}
+html[data-travel-theme="vietnam"] .photo-space {background:#e2efea;color:#476e68}
+html[data-travel-theme="vietnam"] .photo-space.large {background:linear-gradient(125deg,#d5ebe6,#f4e6c6)}
+html[data-travel-theme="vietnam"] .day-sidebar {background:#f3e9cf}
+html[data-travel-theme="vietnam"] .day-sidebar dl>div {border-color:#ddd2b5}
+html[data-travel-theme="vietnam"] .island-place,
+html[data-travel-theme="vietnam"] .practical-grid article {background:#fffdf6}
+/* World gateway and Vietnam journal share the existing paper-and-ink palette. */
+.atlas-nav { display:flex; gap:24px; font-size:14px; }
+.atlas-nav a:hover { color:var(--accent); }
+.world-page { max-width:1320px; margin:auto; padding:54px 40px 0; }
+.world-intro { display:flex; align-items:end; justify-content:space-between; gap:35px; margin-bottom:30px; }
+.world-intro h1 { font-size:clamp(30px,3.3vw,48px); font-weight:500; margin-top:14px; line-height:1.5; }
+.world-intro>p { font-size:14px; line-height:1.9; color:var(--muted); }
+.world-map-panel { background:#eeefe6; padding:24px 24px 18px; }
+.atlas svg { display:block; width:100%; height:auto; }
+.atlas { position:relative; }
+.atlas-credit { position:absolute; bottom:0; right:8px; color:#747c72; font-size:9px; }
+.map-target { cursor:pointer; }
+@media(max-width:700px){.atlas .map-target {transform:scale(1.65)}.world-intro h1 {text-wrap:balance}.atlas-vietnam .map-target {transform:scale(1.8)}}
+.map-target:focus-visible { outline:2px solid #253e38; }
+.atlas-bottom { display:flex; justify-content:space-between; padding:15px 10px 0; font-size:12px; color:var(--muted); border-top:1px solid #d9dccc; }
+.country-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:26px; }
+.country-card { padding:27px 30px; border:1px solid var(--line); border-top:3px solid #ad4f38; transition:background .2s; }
+.country-card:hover { background:#efeee6; }
+.country-card h2 { display:flex; justify-content:space-between; font-size:32px; margin:10px 0; }
+.country-card p { color:var(--muted); font-size:15px; margin-bottom:14px; }
+.country-card small { font-size:11px; letter-spacing:.07em; color:var(--muted); }
+.vietnam-card { border-top-color:#267c78; }.vietnam-card .eyebrow {color:#267c78;}
+.country-eyebrow { margin-top:42px; }.country-note { margin-top:48px; color:#267c78; font:36px Georgia,serif; letter-spacing:.1em; }.country-note span { font:13px system-ui; letter-spacing:.1em; }
+.breadcrumbs { display:flex; gap:13px; align-items:center; font-size:13px; color:var(--muted); margin-bottom:25px; }.breadcrumbs a:hover { color:#267c78; }
+.island-hero { background:#e6ede4; padding:56px max(28px,calc((100vw - 1104px)/2)); display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.island-hero h1 { font-size:clamp(52px,7vw,88px); letter-spacing:.12em; line-height:1.4; margin-top:20px; }.island-hero .eyebrow {color:#267c78;}
+.island-roman { font:20px Georgia,serif; letter-spacing:.28em; margin:10px 0 26px; }.island-hero p:not(.eyebrow):not(.island-roman) { line-height:1.9; color:#526e61; }.trip-date { display:block; font-size:12px; letter-spacing:.14em; margin-top:26px; }
+.island-art svg { width:100%; }.island-art>span { display:block; text-align:center; letter-spacing:.25em; font-size:10px; color:#548777; }
+.trip-facts { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--line); margin-bottom:52px; padding-bottom:30px; gap:20px; }.trip-facts small { display:block; font-size:12px; color:var(--muted); }.trip-facts strong { display:block; font-weight:500; font-size:22px; margin-top:9px; }
+.island-days { border-top:1px solid var(--line); }.island-day { display:grid; grid-template-columns:76px 1fr 25px; gap:28px; padding:29px 18px; border-bottom:1px solid var(--line); align-items:center; transition:background .2s; }.island-day:hover { background:#eeefe6; }.island-day-number { color:#267c78; font:44px Georgia,serif; }.island-day-number small { display:block; font:10px system-ui; letter-spacing:.2em; margin-bottom:4px; }.island-day h3 { font-size:25px; margin:7px 0; }.island-day p,.island-day small { color:var(--muted); font-size:13px; }.day-route { color:#267c78; font-size:12px; margin-top:13px; line-height:1.8; }.stay-heading {margin-top:56px;}
+.practical-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.practical-grid article {border:1px solid var(--line);padding:25px;}.practical-grid h3 {font-size:20px;margin:12px 0}.practical-grid p {font-size:14px;line-height:1.9;margin:10px 0;color:var(--muted)}.practical-grid small,.source-note {font-size:12px;color:var(--muted);line-height:1.8}.source-note {margin-top:25px}
+.day-page-heading h1 {font-size:clamp(30px,4vw,48px);margin:16px 0}.day-page-heading>p:last-child {color:var(--muted);line-height:1.8;font-size:14px;margin-bottom:30px}.photo-space {background:#e7ede3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:185px;color:#6b8579}.photo-space>span:first-child {font-size:38px;font-family:Georgia}.photo-space small {font-size:10px;letter-spacing:.17em}.photo-caption {font-size:12px;opacity:.75}.photo-space.large {min-height:265px;background:linear-gradient(135deg,#e3eade,#ecede2)}.trip-photos {display:flex;gap:10px;overflow-x:auto}.trip-photos img {max-height:300px;object-fit:cover;max-width:100%}.trip-photos.large img {max-height:500px}
+.route-ribbon {display:flex;flex-wrap:wrap;gap:16px 26px;padding:25px 0;border-bottom:1px solid var(--line);margin-bottom:40px}.route-ribbon>span {font-size:14px}.route-ribbon small {color:#267c78;margin-right:10px;font:15px Georgia}.day-layout {display:grid;grid-template-columns:1.6fr 1fr;gap:55px}.day-layout h2 {font-size:25px;margin-bottom:24px}.island-place {border:1px solid var(--line);margin-bottom:22px;padding:16px;background:#fffdfa}.island-place>div:last-child {padding:20px 5px 10px}.island-place h3 {font-size:23px;margin:8px 0}.island-place p {font-size:15px;color:var(--muted);line-height:1.9}.island-place small {color:#267c78;font-size:11px}.day-sidebar {align-self:start;background:#eeefe6;padding:28px}.day-sidebar dl>div {border-bottom:1px solid #d9ddcf;padding:14px 0;display:grid;grid-template-columns:40px 1fr;gap:18px;font-size:14px}.day-sidebar dt {color:var(--muted)}.day-sidebar h3 {font-size:21px;margin:28px 0 14px}.day-sidebar p {font-size:14px;line-height:1.9;margin-bottom:16px;color:#5c6c62}.day-sidebar>small {font-size:11px;color:var(--muted)}.day-pagination {display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:28px 0;margin-top:30px;font-size:14px}
+@media(max-width:700px){.world-page {padding:30px 20px 0}.world-intro {display:block}.world-intro>p {margin-top:15px}.world-map-panel {padding:18px 6px}.world-map-panel .map-heading {font-size:9px;padding:0 8px}.atlas-bottom {font-size:10px}.atlas-credit {font-size:7px}.country-grid {gap:14px}.country-card {padding:20px 16px}.country-card h2 {font-size:28px}.country-card p {font-size:13px;line-height:1.7}.atlas-nav {gap:15px;font-size:12px}.nav-inner {flex-wrap:wrap;gap:14px!important}.island-hero {padding:35px 24px;gap:10px;grid-template-columns:1fr}.island-art {max-width:340px;justify-self:center}.island-art svg {max-height:220px}.island-hero h1 {font-size:56px}.trip-facts strong {font-size:17px}.island-day {padding:24px 4px;grid-template-columns:46px 1fr 15px;gap:14px}.island-day h3 {font-size:21px}.island-day-number {font-size:34px}.practical-grid,.day-layout {grid-template-columns:1fr}.day-layout {gap:26px}.photo-space.large {min-height:210px}.country-note {margin-top:30px}}
 :root { --paper:#faf8f3; --ink:#253e38; --muted:#6c736a; --line:#deded3; --accent:#ad4f38; --serif:"Noto Serif TC","Songti TC","PMingLiU",Georgia,serif; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:90px; }
